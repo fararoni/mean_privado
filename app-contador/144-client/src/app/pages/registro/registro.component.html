@@ -1,0 +1,64 @@
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../../../assets/assets/images/background/login-register.jpg);">
+        <div class="login-box card">
+            <div class="card-body">
+                <form class="form-horizontal form-material" 
+                (ngSubmit)="crearUsuario();"
+                [formGroup]="registroForm"
+                id="registroForm"
+                >
+                    <a href="javascript:void(0)" class="text-center db"><br/><img src="../../../assets/assets/images/contador-avalos.png" alt="Home" /></a>
+                    <h3 class="box-title m-t-40 m-b-0">Regístrate</h3><small>Crear una cuenta nueva</small>
+                    <div class="form-group m-t-20">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Nombre"
+                            formControlName="nombre">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Correo"
+                            formControlName="email">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" placeholder="Contraseña"
+                            formControlName="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" placeholder="Confirmar Contraseña"
+                            formControlName="password2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-danger">
+                            <p *ngIf="campoNoValido('nombre');"> El nombre debe ser válido</p>
+                            <p *ngIf="campoNoValido('email');"> El correo electrónico debe ser válido</p>
+                            <p *ngIf="campoNoValido('password');"> El password debe ser válido</p>
+                            <p *ngIf="campoNoValido('password2');"> La confirmación del password debe ser válido</p>
+                            <p *ngIf="contrasenasNoValidas();"> Las contraseñas deben ser iguales</p>
+                        </div>
+                    </div>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Registrarse</button>
+                        </div>
+                    </div>
+                    <div class="form-group m-b-0">
+                        <div class="col-sm-12 text-center">
+                            <p>¿Ya tienes tu cuenta? <a [routerLink]="['/login']" class="text-info m-l-5 cursor"><b>Iniciar Sesion</b></a></p>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
